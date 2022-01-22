@@ -32,11 +32,11 @@ pub enum Gamestate {
 impl From<i32> for Gamestate {
     fn from(state: i32) -> Gamestate {
         match state {
-            0x01 => Gamestate::WaitConnect,
-            0x02 => Gamestate::Connecting,
-            0x06 => Gamestate::AwaitJoin,
-            0x05 => Gamestate::Connected,
-            0x0B => Gamestate::Restarting,
+            1 => Gamestate::WaitConnect,
+            2 => Gamestate::Connecting,
+            6 => Gamestate::AwaitJoin,
+            5 => Gamestate::Connected,
+            11 => Gamestate::Restarting,
             _ => Gamestate::None,
         }
     }
@@ -57,7 +57,7 @@ pub struct CNetGame {
     pub m_nGameState: ::std::os::raw::c_int,
     pub m_lastConnectAttempt: TICK,
     pub m_pSettings: *mut (),
-    pub pad_2: [::std::os::raw::c_char; 5usize],
+    pub pad_3: [::std::os::raw::c_char; 5usize],
     pub m_pPools: *mut CNetGame_Pools,
 }
 
